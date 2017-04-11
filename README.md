@@ -5,6 +5,7 @@
 This simple app represent an example of how GraphQL queries and mutations can be implemented. I used Movies as entity, and have only implemented Create and Read operations. Rest of operations (update, delete) can be done based on these two.
 
 <h2> Installation and configuration </h2>
+
 What will you need to get this thing running:
 
 Ruby: 2.3.1
@@ -31,6 +32,7 @@ Next thing is to put some initial data in your db. I've prepared top 5 rated mov
 Run ```rake db:seed``` to populate Movies table, and then ```rails s``` to start server at http://localhost:3000
 
 This project supports both, server-side and client-side rendering. If you want to continue with developemnt of this project I would recommend client-side rendering.
+
 <h4>Option #1: Client-side rendering</h4>
 
 Position yourself to root_folder/client/movie_reactjs_apollo/ and type
@@ -55,12 +57,13 @@ npm run build
 and node will do optimization of the files and export reactjs application to public folder of Rails application. Then just start Rails app and you will have server and client running at the same address, http://localhost:3000 
 
 <h4>Option #3: Not interested in client app? Not a problem, I've got you covered.</h4>
+
 If you like using [Postman](https://www.getpostman.com/) I have just a thing for you.
 In root folder of project there is a file named
 ```
 RailsGraphQL.postman_collection.json
 ```
-that you can import in [Postman](https://www.getpostman.com/) and send requests that I already created for you.
+that you can import in Postman and send requests that I already created for you.
 
 But if you prefer using something new, cool and writing queries on your own with help of autocomplete, then just start rails app, open your favorite browser and navigate to http://localhost:3000/graphiql
 
@@ -70,6 +73,7 @@ By the default for this project graphiql is set to do the quering only, but if y
 
 
 <h2> A bit more about the project... </h2>
+
 For GraphQL I've used a standard [graphql-ruby](https://github.com/rmosolgo/graphql-ruby) gem. All of GraphQL configuration files can be found in app/models/graph folder.
 
 For communication between client and server this app uses [apollo-client](https://github.com/apollographql/apollo-client).
