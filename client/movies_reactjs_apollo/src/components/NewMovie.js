@@ -3,6 +3,8 @@
  */
 import React, { Component } from 'react';
 import { gql, graphql } from 'react-apollo';
+import update from 'immutability-helper';
+import { browserHistory } from 'react-router';
 
 class NewMovie extends Component {
     constructor(){
@@ -23,7 +25,7 @@ class NewMovie extends Component {
         let description = this.refs.description.value;
         let released_date = this.refs.released_date.value;
 
-        var variables = {
+        let variables = {
             title: title,
             genre: genre,
             rating: rating,
@@ -32,13 +34,13 @@ class NewMovie extends Component {
             released_date: released_date
         }
 
-        this.props.mutate({
+        this.props.submit({
             variables: variables
         })
         .then(({ data }) => {
-            console.log('got data', data);
+            browserHistory.push('/movies');
         }).catch((error) => {
-            console.log('there was an error sending the query', error);
+            console.log('There was an error sending the query', error);
         });
     }
 
@@ -81,7 +83,7 @@ class NewMovie extends Component {
     }
 }
 
-const newMovie = gql`
+const newMovieMutation = gql`
     mutation newMovie($title: String!, 
                         $genre: String, 
                         $duration: String, 
@@ -109,5 +111,35 @@ const newMovie = gql`
 `;
 
 
-const NewMovieWithData = graphql(newMovie)(NewMovie);
+const NewMovieWithData = graphql(newMovieMutation
+    ,{
+    props({ mutate }) {
+        return {
+           submit({ variables }) {
+               return mutate({
+                   variables: variables,
+                   optimisticResponse: {
+                       __typename: 'Mutation',
+                       newMovie: {
+                           __typename: 'Movie',
+                           title: variables.title,
+                           genre: variables.genre
+                       }
+                   },
+                   updateQueries: {
+                       MovieListQuery: (previousResult, { mutationResult }) => {
+                           const newMovie = mutationResult.data.newMovie;
+                           return update(previousResult, {
+                               movies: {
+                                   $unshift: [newMovie]
+                               }
+                           });
+                       }
+                   }
+               });
+           }
+        };
+    }
+}
+)(NewMovie);
 export default NewMovieWithData;

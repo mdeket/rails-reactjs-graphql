@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import logo from '../public/stack.png';
 import './App.css';
 import { Link } from 'react-router';
-import { Nav, NavItem, Table } from 'react-bootstrap';
 
 class App extends Component {
     render() {
