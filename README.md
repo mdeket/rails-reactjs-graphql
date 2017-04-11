@@ -43,6 +43,7 @@ npm start
 ```
 to start node server. 
 If you've already started rails app, then node will ask you to change its default port (:3000) to some random port, just hit enter and node will do the magic. 
+
 Client and server can talk even though they're at different domains(ports in this case). This is possible because of Rack CORS Middleware. Rack::Cors provides support for Cross-Origin Resource Sharing (CORS) for Rack compatible web applications. For this example I enabled requests from any domain, but it's definitely not recommended for production!
 
 <h4>Option #2: Server-side rendering</h4>
