@@ -62,12 +62,16 @@ RailsGraphQL.postman_collection.json
 that you can import in [Postman](https://www.getpostman.com/) and send requests that I already created for you.
 
 But if you prefer using something new, cool and writing queries on your own with help of autocomplete, then just start rails app, open your favorite browser and navigate to http://localhost:3000/graphiql
+
 GraphiQL is an in-browser IDE for exploring GraphQL. You can read more about GraphiQL in this [post](https://medium.com/the-graphqlhub/graphiql-graphql-s-killer-app-9896242b2125) that Clay Allsopp wrote.
+
 By the default for this project graphiql is set to do the quering only, but if you want do see how mutations work then open routes.rb file in root_foler/config and change line 9, graphql_path to '/graphql/mutations' and restart the app.
 
 
 <h2> A bit more about the project... </h2>
 For GraphQL I've used a standard [graphql-ruby](https://github.com/rmosolgo/graphql-ruby) gem. All of GraphQL configuration files can be found in app/models/graph folder.
+
 For communication between client and server this app uses [apollo-client](https://github.com/apollographql/apollo-client).
 There is only two queries written for client app, one for quering movies by id and one for creating a new movie.
+
 I've added optimistic response to mutation for creating a new movie. Because apollo caches request to make our apps faster and more fluid, we have to tell apollo that mutation happened and that something has changed. You can read more about this subject [here](http://dev.apollodata.com/react/optimistic-ui.html#optimistic-advanced) 
