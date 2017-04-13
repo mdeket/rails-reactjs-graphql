@@ -5,6 +5,14 @@ Rails.application.routes.draw do
     post '/query', to: 'graphql#query'
   end
 
+  # resources :users, only: :create
+  resources :users, only: :create do
+    collection do
+      get 'confirm'
+      post 'login'
+    end
+  end
+
   if Rails.env.development?
     mount GraphiQL::Rails::Engine, at: "/graphiql", graphql_path: "/graphql/query"
   end

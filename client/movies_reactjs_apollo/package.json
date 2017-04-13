@@ -6,7 +6,8 @@
     "react": "15.4.2",
     "react-apollo": "1.0.0",
     "react-dom": "15.4.2",
-    "react-router": "3.0.3"
+    "react-router": "3.0.3",
+    "superagent": "^3.5.2"
   },
   "devDependencies": {
     "autoprefixer": "6.7.2",

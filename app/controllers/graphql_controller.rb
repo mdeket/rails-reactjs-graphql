@@ -1,4 +1,6 @@
 class GraphqlController < ApplicationController
+  before_filter 'authenticate_request!'
+
   def mutations
     query_string = params[:mutation]
     query_variables = ensure_hash(params[:variables])

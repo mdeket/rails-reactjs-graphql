@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+</head>
+<body>
+<h1>Welcome to Rails, ReactJS and GraphQL world, <%= @user.email %></h1>
+<p>
+  Click on this link to activate your account. http://localhost:3000/users/confirm?token=<%= @user.confirmation_token %>
+</p>
+<p>Thanks for testing my app and have a great day!</p>
+</body>
+</html>
