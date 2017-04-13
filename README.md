@@ -33,6 +33,13 @@ Run ```rake db:seed``` to populate Movies table, and then ```rails s``` to start
 
 This project supports both, server-side and client-side rendering. If you want to continue with developemnt of this project I would recommend client-side rendering.
 
+<h4>JWT</h4>
+I've added JWT for Ruby for authenticating users. Until you register user and confirm their email, you won't be able to get any data from the server. Example that I used for implementing JWT and sending emails with a background processor through Active Job can found [here](https://www.sitepoint.com/authenticate-your-rails-api-with-jwt-from-scratch/) and [here](https://launchschool.com/blog/handling-emails-in-rails).
+Security can be easily turned off, just delete line #2 in GraphqlController.
+
+<h4>REST & GraphQL</h4>
+This app is an implementation of both, GraphQL and Rest. It uses REST for registering and authenticating user, however it uses GraphQL for getting movies from db.
+
 <h4>Option #1: Client-side rendering</h4>
 
 Position yourself to root_folder/client/movie_reactjs_apollo/ and type
