@@ -1,10 +1,10 @@
 class GraphqlController < ApplicationController
-  before_filter 'authenticate_request!'
+  # before_filter 'authenticate_request!'
 
   def mutations
     query_string = params[:mutation]
     query_variables = ensure_hash(params[:variables])
-    result = Graph::MovieSchema.execute(query_string, variables: query_variables)
+    result = Schema.execute(query_string, variables: query_variables)
     puts(result.to_s)
     render json: result
   end
@@ -12,7 +12,7 @@ class GraphqlController < ApplicationController
   def query
     query_string = params[:query]
     query_variables = ensure_hash(params[:variables])
-    result = Graph::MovieSchema.execute(query_string, variables: query_variables)
+    result = Schema.execute(query_string, variables: query_variables)
     puts(result.to_s)
     render json: result
   end
