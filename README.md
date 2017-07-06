@@ -65,14 +65,7 @@ and node will do optimization of the files and export reactjs application to pub
 
 <h4>Option #3: Not interested in client app? Not a problem, I've got you covered.</h4>
 
-If you like using [Postman](https://www.getpostman.com/) I have just a thing for you.
-In root folder of project there is a file named
-```
-RailsGraphQL.postman_collection.json
-```
-that you can import in Postman and send requests that I already created for you.
-
-But if you prefer using something new, cool and writing queries on your own with help of autocomplete, then just start rails app, open your favorite browser and navigate to http://localhost:3000/graphiql
+Use graphiql. Graphiql helps you writing graphql queries with its autocomplete and documentation for your graphql that is generated on the fly. Just start rails app, open your favorite browser and navigate to http://localhost:3000/graphiql
 
 GraphiQL is an in-browser IDE for exploring GraphQL. You can read more about GraphiQL in this [post](https://medium.com/the-graphqlhub/graphiql-graphql-s-killer-app-9896242b2125) that Clay Allsopp wrote.
 
